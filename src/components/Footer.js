@@ -5,7 +5,7 @@ function Footer() {
 
     return (
         <div className="border-t bg-gray-900 text-gray-100 flex items-center justify-between lg:p-12 py-6 px-4 font-quicksand">
-             <div><h1 className="text-xl text-red-600">FILMMAX
+             <div><h1 className="text-xl text-red-600">Shopify
              </h1>
              <p>&copy; all rights reserved</p>
              </div>

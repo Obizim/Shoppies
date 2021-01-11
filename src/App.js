@@ -4,10 +4,12 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Footer from "./components/Footer";
 import Movies from './components/Movies';
 import Nominees from './components/Nominees';
+import GlobalContextProvider from './context.js/GlobalContext';
 
 
 function App() {
   return (
+    <GlobalContextProvider>
       <Router>
         <Navbar />
         <Switch>
@@ -16,6 +18,7 @@ function App() {
         </Switch>
         <Footer />
       </Router>
+      </GlobalContextProvider>
   );
 }
 

@@ -3,25 +3,23 @@ import { GlobalContext } from "../context.js/GlobalContext";
 
 
 function Movies() {
-//   const SEARCH_API =
-//     'https://api.themoviedb.org/3/search/movie?api_key=0451e553a464ab7929fee2e705dab05e&query="';
   const url = "https://image.tmdb.org/t/p/w500";
 
-  const {movies, loading,searchTerm,onhandleSearch,onhandleSubmit} = useContext(GlobalContext)
+  const {movies, loading,searchTerm,onhandleSearch,onhandleSubmit,onBtnClick } = useContext(GlobalContext)
 
   return (
     <div className="bg-gray-900 text-gray-100">
       <form
-        className="flex flex-col items-start container justify-center space-y-2 lg:px-32 px-2 py-4"
+        className="flex flex-col container mx-auto py-8 px-10 space-y-1"
         onSubmit={onhandleSubmit}
       >
-        <label htmlFor="search">Search for Movies</label>
+        <label htmlFor="search" className="uppercase">Search for Movies</label>
         <input
           type="text"
           name="search"
           placeholder="🔎 Search for movies"
           onChange={onhandleSearch}
-          className="pl-2 md:pr-44 pr-20 py-2 rounded shadow-lg outline-none text-black"
+          className="pl-2 py-2 shadow-lg outline-none text-black"
           value={searchTerm}
         />
       </form>
@@ -38,7 +36,7 @@ function Movies() {
                   <div className="flex flex-col py-2 px-2">
                   <p className="lg:text-xl text-base mt-2 rounded">{title}</p>
                   <p className="text-red-400 text-base mt-2 rounded">{release_date}</p>
-                  <button className="bg-white text-black hover:bg-black hover:text-white transition py-2 px-4 rounded mt-4">Nominate</button>
+                  <button onClick={() => onBtnClick(id)} className="bg-white text-black hover:bg-black hover:text-white transition py-2 px-4 rounded mt-4">Nominate</button>
                   </div>
                 </div>
             );

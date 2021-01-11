@@ -8,7 +8,7 @@ function Navbar() {
     <div className="sticky w-full">
       <nav className="items-center justify-between bg-gray-900 text-gray-100 py-8 px-6 lg:px-14 shadow-lg font-quicksand">
         <div className="flex justify-between items-center">
-          <h1 className="text-xl text-red-600">Shopify</h1>
+          <h1 className="text-xl text-red-600">Shoppies</h1>
           <button
             onClick={() => setOpen(!isOpen)}
             className="lg:hidden md:hidden focus:outline-none focus:ring focus:border-white"
@@ -44,7 +44,7 @@ function Navbar() {
         {!isOpen && (
           <aside className="md:hidden lg:hidden top-0 left-0 w-52 bg-gray-900 fixed h-full overflow-auto ease-in-out transition-all duration-900 z-50">
             <span className="flex w-full items-center py-7 border-b">
-              <h1 className="text-xl text-red-600 px-6">Shopify</h1>
+              <h1 className="text-xl text-red-600 px-6">Shoppies</h1>
             </span>
             <Link to="/">
               {" "}

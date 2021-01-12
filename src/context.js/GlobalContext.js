@@ -12,7 +12,6 @@ function GlobalContextProvider({ children }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [nominatedMovies, setNominatedMovies] = useState([]);
 
-
   // on Search Form Submit
   function onhandleSubmit(e) {
     e.preventDefault();
@@ -35,24 +34,31 @@ function GlobalContextProvider({ children }) {
 
   // Add to Nominations List
   function onBtnClick(id) {
-    movies.filter((movie) =>{
-      if(movie.id === id) {
-          setNominatedMovies([...nominatedMovies, movie])
-        }
-      return movie
-    } 
-      )
+    movies.filter((movie) => {
+      if (movie.id === id) {
+        setNominatedMovies([...nominatedMovies, { ...movie }]);
+      }
+      return movie;
+    });
   }
 
   // Remove from Nominations List
-
   function onRemoveClick(id) {
-    setNominatedMovies(nominatedMovies.filter(movie => movie.id !== id))
+    setNominatedMovies(nominatedMovies.filter((movie) => movie.id !== id));
   }
 
   return (
     <GlobalContext.Provider
-      value={{ movies, loading, searchTerm, onhandleSubmit, onhandleSearch, nominatedMovies, onBtnClick, onRemoveClick }}
+      value={{
+        movies,
+        loading,
+        searchTerm,
+        onhandleSubmit,
+        onhandleSearch,
+        nominatedMovies,
+        onBtnClick,
+        onRemoveClick,
+      }}
     >
       {children}
     </GlobalContext.Provider>

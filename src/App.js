@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Nominations from "./components/Nominations";
 import Footer from "./components/Footer";
 import Movies from "./components/Movies";
@@ -8,7 +8,14 @@ import search from "./components/images/search.png";
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
   const [movies, setMovies] = useState([]);
-  const [nominatedMovies, setNominatedMovies] = useState([]);
+  const [nominatedMovies, setNominatedMovies] = useState(() => {
+    const localData = localStorage.getItem("nominations");
+    return localData ? JSON.parse(localData) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("nominations", JSON.stringify(nominatedMovies));
+  }, [nominatedMovies]);
 
   const onhandleSubmit = async (e) => {
     e.preventDefault();

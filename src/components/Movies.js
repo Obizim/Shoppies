@@ -8,7 +8,7 @@ const Movies = ({ movies, nominate, nominatedMovies }) => {
       setAlert(true);
       setTimeout(() => {
         setAlert(false);
-      }, 2000);
+      }, 3000);
     }
   }, [nominatedMovies.length]);
   const NominationStatus = (id) => {
@@ -20,7 +20,7 @@ const Movies = ({ movies, nominate, nominatedMovies }) => {
       {/* ALERT NOTIFICATION */}
       {alert && (
         <div
-          className="bg-yellow-800 fixed bottom-1 transition-all right-3 border-l-4 text-yellow-50 p-4"
+          className="bg-yellow-800 md:w-2/4 fixed bottom-1 transition-all right-3 border-l-4 text-yellow-50 p-4"
           role="alert"
         >
           <p className="font-bold">Limit Reached!</p>

@@ -1,15 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import star from "./images/star.png";
 import box from "./images/box.svg";
 
-function Navbar({ nominatedMovies }) {
+function Navbar({ nominatedMovies, removeNomination }) {
   const [openSidebar, setOpenSidebar] = useState(false);
 
   const onOpenSidebar = () => {
     setOpenSidebar(!openSidebar);
   };
-
-  console.log(nominatedMovies);
   return (
     <>
       <nav
@@ -23,7 +21,7 @@ function Navbar({ nominatedMovies }) {
       </nav>
 
       <aside
-        className={`transform top-0 right-0 w-full sm:w-2/4 lg:w-1/4 bg-black fixed h-full overflow-auto ease-in-out transition-all duration-300 z-10
+        className={`transform top-0 right-0 w-full md:w-96  bg-black fixed h-full overflow-auto ease-in-out transition-all duration-300 z-10
           ${openSidebar ? "-translate-x-0" : "translate-x-full"}`}
       >
         <div className="flex items-center justify-between px-4 py-4">
@@ -58,7 +56,10 @@ function Navbar({ nominatedMovies }) {
                   {movie.Title}
                 </p>
               </div>
-              <button className="py-2 px-4 outline-none border border-yellow-500">
+              <button
+                onClick={() => removeNomination(movie.imdbID)}
+                className="py-2 px-4 outline-none border border-yellow-500"
+              >
                 Remove
               </button>
             </div>

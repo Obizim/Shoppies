@@ -23,13 +23,23 @@ function App() {
   };
 
   // Add to Nominations List
-  function onNominate(movie) {
+  const onNominate = (movie) => {
     setNominatedMovies([...nominatedMovies, movie]);
-  }
+  };
+
+  const onRemoveNomination = (id) => {
+    const newNomination = nominatedMovies.filter(
+      (movie) => movie.imdbID !== id
+    );
+    setNominatedMovies(newNomination);
+  };
 
   return (
     <div className="flex flex-col min-h-screen bg-black text-white font-oxygen">
-      <Nominations nominatedMovies={nominatedMovies} />
+      <Nominations
+        nominatedMovies={nominatedMovies}
+        removeNomination={onRemoveNomination}
+      />
       <section
         className="bg-hero-pattern bg-cover flex items-center justify-center"
         style={{ height: "50vh" }}
@@ -73,7 +83,11 @@ function App() {
             <p className="uppercase text-yellow-500">Search for movies</p>
           </section>
         ) : (
-          <Movies movies={movies} nominate={onNominate} />
+          <Movies
+            movies={movies}
+            nominate={onNominate}
+            nominatedMovies={nominatedMovies}
+          />
         )}
       </main>
 

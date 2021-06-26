@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { GlobalContext } from "../context.js/GlobalContext";
+import { GlobalContext } from "../Context/GlobalContext";
 
 function Nominees() {
   const url = "https://image.tmdb.org/t/p/w500";

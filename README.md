@@ -8,11 +8,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+### Install dependencies
+
 ```bash
   npm install
 ```
 
-## Runs the app in the development mode.
+### Runs the app in the development mode.
 
 ```bash
   npm start

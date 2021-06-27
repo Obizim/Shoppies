@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        oxygen: ["Oxygen", "sans-serif"],
+        openSans: ["Open Sans", "sans-serif"],
       },
       backgroundImage: {
         "hero-pattern":

@@ -1,33 +1,10 @@
-import { useEffect, useState } from "react";
-
 const Movies = ({ movies, nominate, nominatedMovies }) => {
-  const [alert, setAlert] = useState(false);
-
-  useEffect(() => {
-    if (nominatedMovies.length > 4) {
-      setAlert(true);
-      setTimeout(() => {
-        setAlert(false);
-      }, 3000);
-    }
-  }, [nominatedMovies.length]);
   const NominationStatus = (id) => {
     const isNominated = nominatedMovies.filter((movie) => movie.imdbID === id);
     return isNominated.length > 0;
   };
   return (
     <>
-      {/* ALERT NOTIFICATION */}
-      {alert && (
-        <div
-          className="bg-yellow-800 md:w-2/4 fixed bottom-1 transition-all right-3 border-l-4 text-yellow-50 p-4"
-          role="alert"
-        >
-          <p className="font-bold">Limit Reached!</p>
-          <p>You've used up your nominations!</p>
-        </div>
-      )}
-
       <section className="transition duration-500 ease-linear grid grid-cols-2 lg:grid-cols-4 md:grid-cols-3 gap-3 lg:py-10 lg:px-32 p-4">
         {movies
           .filter((movie) => {
